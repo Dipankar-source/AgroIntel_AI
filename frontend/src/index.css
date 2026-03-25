@@ -1,0 +1,544 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap');
+
+@import 'tailwindcss';
+
+@custom-variant dark (&:is(.dark *));
+
+/* ─── Navbar animated bg variables ─────────────────────── */
+:root {
+  --nav-scrolled-bg: rgba(255, 255, 255, 0.95);
+  --nav-transparent-bg: rgba(255, 255, 255, 0);
+}
+.dark {
+  --nav-scrolled-bg: rgba(13, 22, 13, 0.96);
+  --nav-transparent-bg: rgba(13, 22, 13, 0);
+}
+
+::-webkit-scrollbar{
+    width: 1px;
+    height: 1px;
+}
+
+@theme inline {
+    --radius-sm: calc(var(--radius) - 4px);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) + 4px);
+    --radius-2xl: calc(var(--radius) + 8px);
+    --radius-3xl: calc(var(--radius) + 12px);
+    --radius-4xl: calc(var(--radius) + 16px);
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-destructive: var(--destructive);
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+    --color-chart-1: var(--chart-1);
+    --color-chart-2: var(--chart-2);
+    --color-chart-3: var(--chart-3);
+    --color-chart-4: var(--chart-4);
+    --color-chart-5: var(--chart-5);
+    --color-sidebar: var(--sidebar);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+    --radius: 0.625rem;
+    --background: oklch(1 0 0);
+    --foreground: oklch(0.145 0 0);
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.145 0 0);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.145 0 0);
+    --primary: oklch(0.205 0 0);
+    --primary-foreground: oklch(0.985 0 0);
+    --secondary: oklch(0.97 0 0);
+    --secondary-foreground: oklch(0.205 0 0);
+    --muted: oklch(0.97 0 0);
+    --muted-foreground: oklch(0.556 0 0);
+    --accent: oklch(0.97 0 0);
+    --accent-foreground: oklch(0.205 0 0);
+    --destructive: oklch(0.577 0.245 27.325);
+    --border: oklch(0.922 0 0);
+    --input: oklch(0.922 0 0);
+    --ring: oklch(0.708 0 0);
+    --chart-1: oklch(0.646 0.222 41.116);
+    --chart-2: oklch(0.6 0.118 184.704);
+    --chart-3: oklch(0.398 0.07 227.392);
+    --chart-4: oklch(0.828 0.189 84.429);
+    --chart-5: oklch(0.769 0.188 70.08);
+    --sidebar: oklch(0.985 0 0);
+    --sidebar-foreground: oklch(0.145 0 0);
+    --sidebar-primary: oklch(0.205 0 0);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.97 0 0);
+    --sidebar-accent-foreground: oklch(0.205 0 0);
+    --sidebar-border: oklch(0.922 0 0);
+    --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+    --background: oklch(0.145 0 0);
+    --foreground: oklch(0.985 0 0);
+    --card: oklch(0.205 0 0);
+    --card-foreground: oklch(0.985 0 0);
+    --popover: oklch(0.205 0 0);
+    --popover-foreground: oklch(0.985 0 0);
+    --primary: oklch(0.922 0 0);
+    --primary-foreground: oklch(0.205 0 0);
+    --secondary: oklch(0.269 0 0);
+    --secondary-foreground: oklch(0.985 0 0);
+    --muted: oklch(0.269 0 0);
+    --muted-foreground: oklch(0.708 0 0);
+    --accent: oklch(0.269 0 0);
+    --accent-foreground: oklch(0.985 0 0);
+    --destructive: oklch(0.704 0.191 22.216);
+    --border: oklch(1 0 0 / 10%);
+    --input: oklch(1 0 0 / 15%);
+    --ring: oklch(0.556 0 0);
+    --chart-1: oklch(0.488 0.243 264.376);
+    --chart-2: oklch(0.696 0.17 162.48);
+    --chart-3: oklch(0.769 0.188 70.08);
+    --chart-4: oklch(0.627 0.265 303.9);
+    --chart-5: oklch(0.645 0.246 16.439);
+    --sidebar: oklch(0.205 0 0);
+    --sidebar-foreground: oklch(0.985 0 0);
+    --sidebar-primary: oklch(0.488 0.243 264.376);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.269 0 0);
+    --sidebar-accent-foreground: oklch(0.985 0 0);
+    --sidebar-border: oklch(1 0 0 / 10%);
+    --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    }
+  body {
+    @apply bg-background text-foreground;
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   DARK MODE — comprehensive global overrides
+   Lives OUTSIDE @layer so these win over every Tailwind utility.
+   Unlayered CSS always beats @layer utilities in the cascade.
+═══════════════════════════════════════════════════════════════ */
+
+/* ── palette variables ──────────────────────────────────────── */
+.dark {
+  --dk-bg:        #0c160d;
+  --dk-surface:   #111f12;
+  --dk-raised:    #192b1a;
+  --dk-raised-2:  #1f3320;
+  --dk-input:     #172618;
+  --dk-border:    rgba(100, 180, 100, 0.18);
+  --dk-border-em: rgba(52, 211, 153, 0.20);
+  --dk-txt-1:     #e2efe2;
+  --dk-txt-2:     #9ec89e;
+  --dk-txt-3:     #5e8c5e;
+  --dk-green:     #4ade80;
+  --dk-emerald:   #34d399;
+  --dk-amber:     #fbbf24;
+  --dk-red:       #f87171;
+}
+
+/* ── page / root ─────────────────────────────────────────────── */
+.dark body {
+  background-color: var(--dk-bg) !important;
+  color: var(--dk-txt-1) !important;
+}
+.dark #root {
+  background-color: var(--dk-bg);
+  color: var(--dk-txt-1);
+  min-height: 100vh;
+}
+
+/* ── gradient page wrappers (Home, etc.) ──────────────────────── */
+.dark .bg-gradient-to-br,
+.dark .bg-gradient-to-b,
+.dark .bg-gradient-to-r,
+.dark [class*="from-green-50"],
+.dark [class*="via-white"],
+.dark [class*="to-emerald-50"] {
+  background: var(--dk-bg) !important;
+}
+
+/* ── white / near-white ───────────────────────────────────────── */
+.dark .bg-white         { background-color: var(--dk-surface) !important; }
+.dark .bg-\[\#fcfdfc\]  { background-color: var(--dk-surface) !important; }
+.dark .bg-white\/90     { background-color: rgba(17, 31, 18, 0.93) !important; }
+.dark .bg-white\/80     { background-color: rgba(17, 31, 18, 0.88) !important; }
+.dark .bg-white\/70     { background-color: rgba(17, 31, 18, 0.80) !important; }
+.dark .bg-white\/98     { background-color: rgba(12, 22, 13, 0.98) !important; }
+
+/* ── gray ─────────────────────────────────────────────────────── */
+.dark .bg-gray-50        { background-color: var(--dk-raised)   !important; }
+.dark .bg-gray-100       { background-color: var(--dk-raised-2) !important; }
+.dark .bg-gray-200       { background-color: #253c26             !important; }
+.dark .bg-gray-800       { background-color: #0c160d             !important; }
+.dark .bg-gray-900       { background-color: #0a1209             !important; }
+/* opacity variants */
+.dark .bg-gray-50\/50,
+.dark .bg-gray-50\/40    { background-color: rgba(25, 43, 26, 0.6) !important; }
+
+/* ── slate (used in ConnectedDevices / MarketInsights) ─────────── */
+.dark .bg-slate-50       { background-color: var(--dk-raised)   !important; }
+.dark .bg-slate-100      { background-color: var(--dk-raised-2) !important; }
+.dark .bg-slate-200      { background-color: #253c26             !important; }
+.dark .text-slate-900    { color: #ddefdd !important; }
+.dark .text-slate-800    { color: #c8e4c8 !important; }
+.dark .text-slate-700    { color: #a8cca8 !important; }
+.dark .text-slate-600    { color: #88b488 !important; }
+.dark .text-slate-500    { color: #6a9a6a !important; }
+.dark .text-slate-400    { color: #5a8e5a !important; }
+.dark .text-slate-300    { color: #8ab08a !important; }
+.dark .border-slate-100,
+.dark .border-slate-200  { border-color: var(--dk-border)       !important; }
+
+/* ── emerald (light → dark) ───────────────────────────────────── */
+.dark .bg-emerald-50     { background-color: #12251a !important; }
+.dark .bg-emerald-100    { background-color: #172d1e !important; }
+.dark .bg-emerald-200    { background-color: #1f3d28 !important; }
+/* keep dark solids roughly as-is but slightly muted */
+.dark .bg-emerald-800    { background-color: #064e2e !important; }
+.dark .bg-emerald-900    { background-color: #053a22 !important; }
+.dark .bg-emerald-950    { background-color: #03260f !important; }
+
+/* ── green (light) ────────────────────────────────────────────── */
+.dark .bg-green-50       { background-color: #122216 !important; }
+.dark .bg-green-100      { background-color: #1a301e !important; }
+.dark .bg-green-50\/60,
+.dark .bg-green-50\/80,
+.dark .bg-green-50\/40   { background-color: rgba(18, 34, 22, 0.7) !important; }
+
+/* ── amber / yellow (status colors) ──────────────────────────── */
+.dark .bg-amber-50       { background-color: #1f1a09 !important; }
+.dark .bg-amber-100      { background-color: #29220c !important; }
+/* opacity amber variants */
+.dark .bg-amber-50\/30   { background-color: rgba(31,26,9,0.45) !important; }
+.dark .text-amber-900    { color: #fde68a !important; }
+.dark .text-amber-800    { color: #fcd34d !important; }
+.dark .text-amber-700    { color: #fbbf24 !important; }
+.dark .text-amber-600    { color: #f59e0b !important; }
+.dark .text-amber-500    { color: #fbbf24 !important; }
+.dark .border-amber-100,
+.dark .border-amber-200  { border-color: rgba(251,191,36,0.22) !important; }
+
+.dark .bg-yellow-50      { background-color: #1f1c09 !important; }
+.dark .bg-yellow-100     { background-color: #292510 !important; }
+.dark .text-yellow-700   { color: #fde047 !important; }
+.dark .text-yellow-800   { color: #fef08a !important; }
+
+/* ── red (errors / danger) ────────────────────────────────────── */
+.dark .bg-red-50         { background-color: #1f0f0f !important; }
+.dark .bg-red-100        { background-color: #2d1515 !important; }
+.dark .text-red-600      { color: #f87171 !important; }
+.dark .text-red-500      { color: #fc8181 !important; }
+.dark .border-red-200    { border-color: rgba(248,113,113,0.25) !important; }
+
+/* ── orange ───────────────────────────────────────────────────── */
+.dark .bg-orange-50      { background-color: #1f1209 !important; }
+.dark .text-orange-700   { color: #fb923c !important; }
+
+/* ── text — gray scale ──────────────────────────────────────────── */
+.dark .text-black        { color: var(--dk-txt-1) !important; }
+.dark .text-gray-950     { color: #e8f4e8 !important; }
+.dark .text-gray-900     { color: #ddefdd !important; }
+.dark .text-gray-800     { color: #c8e4c8 !important; }
+.dark .text-gray-700     { color: #a8cca8 !important; }
+.dark .text-gray-600     { color: #88b488 !important; }
+.dark .text-gray-500     { color: #6a9a6a !important; }
+.dark .text-gray-400     { color: #5a8a5a !important; }
+
+/* ── text — emerald scale ───────────────────────────────────────── */
+.dark .text-emerald-950  { color: #d0ecce !important; }
+.dark .text-emerald-900  { color: #c0e2be !important; }
+.dark .text-emerald-800  { color: #a0d4a0 !important; }
+.dark .text-emerald-700  { color: #80c480 !important; }
+.dark .text-emerald-600  { color: var(--dk-emerald) !important; }
+.dark .text-emerald-500  { color: #6abf6a !important; }
+.dark .text-emerald-400  { color: #4ade80 !important; }
+
+/* ── text — green scale ─────────────────────────────────────────── */
+.dark .text-green-900    { color: #bbf7d0 !important; }
+.dark .text-green-800    { color: #86efac !important; }
+.dark .text-green-700    { color: #6abe6a !important; }
+.dark .text-green-600    { color: var(--dk-green) !important; }
+.dark .text-green-500    { color: #4ade80 !important; }
+
+/* white text stays white */
+.dark .text-white        { color: #ffffff !important; }
+
+/* ── borders ────────────────────────────────────────────────────── */
+.dark .border            { border-color: var(--dk-border)  !important; }
+.dark .border-t          { border-top-color: var(--dk-border) !important; }
+.dark .border-b          { border-bottom-color: var(--dk-border) !important; }
+.dark .border-l          { border-left-color: var(--dk-border) !important; }
+.dark .border-r          { border-right-color: var(--dk-border) !important; }
+
+.dark .border-gray-50    { border-color: var(--dk-border)  !important; }
+.dark .border-gray-100   { border-color: var(--dk-border)  !important; }
+.dark .border-gray-200   { border-color: rgba(100,180,100,0.22) !important; }
+
+.dark .border-emerald-50,
+.dark .border-emerald-100  { border-color: rgba(52,211,153,0.15) !important; }
+.dark .border-emerald-200  { border-color: rgba(52,211,153,0.22) !important; }
+.dark .border-emerald-300  { border-color: rgba(52,211,153,0.30) !important; }
+.dark .border-emerald-800  { border-color: rgba(52,211,153,0.40) !important; }
+
+.dark .border-green-200  { border-color: rgba(74,222,128,0.22) !important; }
+
+/* ── hover: backgrounds ──────────────────────────────────────── */
+.dark .hover\:bg-white:hover          { background-color: var(--dk-raised) !important; }
+.dark .hover\:bg-gray-50:hover        { background-color: var(--dk-raised) !important; }
+.dark .hover\:bg-gray-100:hover       { background-color: var(--dk-raised-2) !important; }
+.dark .hover\:bg-green-50:hover       { background-color: #172d1a !important; }
+.dark .hover\:bg-emerald-50:hover     { background-color: #172d1e !important; }
+.dark .hover\:bg-emerald-100:hover,
+.dark .hover\:bg-emerald-200:hover    { background-color: #1e3a24 !important; }
+.dark .hover\:bg-red-50:hover         { background-color: #2d1515 !important; }
+
+/* ── hover: text ─────────────────────────────────────────────── */
+.dark .hover\:text-gray-600:hover     { color: #a8cca8 !important; }
+.dark .hover\:text-gray-700:hover     { color: #b8d8b8 !important; }
+.dark .hover\:text-green-700:hover    { color: #6abe6a !important; }
+.dark .hover\:text-emerald-800:hover  { color: #a0d4a0 !important; }
+
+/* ── hover: border ────────────────────────────────────────────── */
+.dark .hover\:border-green-200:hover  { border-color: rgba(74,222,128,0.35) !important; }
+.dark .hover\:border-emerald-300:hover { border-color: rgba(52,211,153,0.40) !important; }
+
+/* ── forms ────────────────────────────────────────────────────── */
+.dark input,
+.dark textarea,
+.dark select {
+  background-color: var(--dk-input)          !important;
+  color: var(--dk-txt-1)                     !important;
+  border-color: rgba(100, 180, 100, 0.22)    !important;
+}
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: var(--dk-txt-3) !important;
+}
+.dark input:focus,
+.dark textarea:focus,
+.dark select:focus {
+  border-color: rgba(52, 211, 153, 0.55) !important;
+  outline-color: rgba(52, 211, 153, 0.30) !important;
+}
+/* disabled inputs */
+.dark input:disabled,
+.dark select:disabled {
+  background-color: var(--dk-raised) !important;
+  color: var(--dk-txt-3)             !important;
+  opacity: 0.7;
+}
+
+/* ── shadows ──────────────────────────────────────────────────── */
+.dark .shadow-sm  { box-shadow: 0 1px 3px  rgba(0,0,0,0.55) !important; }
+.dark .shadow     { box-shadow: 0 2px 6px  rgba(0,0,0,0.60) !important; }
+.dark .shadow-lg  { box-shadow: 0 8px 24px rgba(0,0,0,0.65) !important; }
+.dark .shadow-2xl { box-shadow: 0 24px 48px rgba(0,0,0,0.80) !important; }
+
+/* ── active nav pill ─────────────────────────────────────────── */
+.dark .bg-green-50.rounded-xl { background-color: rgba(52,211,153,0.1) !important; }
+
+/* ── Toastify ─────────────────────────────────────────────────── */
+.dark .Toastify__toast         { background-color: var(--dk-raised)  !important; color: var(--dk-txt-1) !important; }
+.dark .Toastify__toast-body    { color: var(--dk-txt-1)              !important; }
+.dark .Toastify__close-button  { color: var(--dk-txt-2)              !important; }
+.dark .Toastify__progress-bar  { opacity: 0.6; }
+
+/* ── Radix / dropdown portals ────────────────────────────────── */
+.dark [data-radix-popper-content-wrapper] {
+  background-color: var(--dk-raised) !important;
+  color: var(--dk-txt-1)             !important;
+}
+
+/* ── rose (MarketInsights weather impact "-" badge) ──────────── */
+.dark .bg-rose-50        { background-color: #200d12 !important; }
+.dark .bg-rose-100       { background-color: #2d1119 !important; }
+.dark .text-rose-700     { color: #fda4af !important; }
+.dark .text-rose-600     { color: #fb7185 !important; }
+.dark .text-rose-500     { color: #fda4af !important; }
+.dark .border-rose-100,
+.dark .border-rose-200   { border-color: rgba(251,113,133,0.22) !important; }
+
+/* ── sky (MarketInsights locked "Sign in" hover overlay) ──────── */
+.dark .bg-sky-50         { background-color: #0c1826 !important; }
+.dark .bg-sky-100        { background-color: #0e2035 !important; }
+.dark .text-sky-700      { color: #7dd3fc !important; }
+.dark .text-sky-600      { color: #38bdf8 !important; }
+.dark .text-sky-500      { color: #7dd3fc !important; }
+.dark .text-sky-800      { color: #bae6fd !important; }
+.dark .border-sky-200    { border-color: rgba(56,189,248,0.22) !important; }
+/* opacity sky variants */
+.dark .bg-sky-50\/70,
+.dark .bg-sky-50\/60,
+.dark .bg-sky-50\/40     { background-color: rgba(12,24,38,0.60) !important; }
+.dark .bg-sky-100\/60    { background-color: rgba(14,32,53,0.65) !important; }
+.dark .hover\:bg-sky-50\/40:hover,
+.dark .hover\:bg-sky-50\/50:hover { background-color: rgba(12,24,38,0.55) !important; }
+.dark .hover\:bg-sky-100\/60:hover { background-color: rgba(14,32,53,0.70) !important; }
+/* group-hover variants on locked card overlays */
+.dark .group:hover .group-hover\:bg-sky-50\/40 { background-color: rgba(12,24,38,0.55) !important; }
+.dark .group:hover .group-hover\:bg-sky-50\/50 { background-color: rgba(12,24,38,0.55) !important; }
+.dark .hover\:bg-sky-500:hover    { background-color: #0369a1 !important; }
+.dark .bg-sky-500        { background-color: #0369a1 !important; }
+.dark .bg-sky-600        { background-color: #0284c7 !important; }
+
+/* ── purple (MarketInsights 7-Day Forecast card icon) ─────────── */
+.dark .bg-purple-50      { background-color: #160d22 !important; }
+.dark .bg-purple-100     { background-color: #1e1030 !important; }
+.dark .text-purple-700   { color: #d8b4fe !important; }
+.dark .text-purple-600   { color: #c084fc !important; }
+.dark .text-purple-500   { color: #d8b4fe !important; }
+.dark .border-purple-100,
+.dark .border-purple-200 { border-color: rgba(192,132,252,0.20) !important; }
+
+/* ── MarketInsights inline-style bg classes ───────────────────── */
+.dark .insight-bg {
+  background-color: var(--dk-bg) !important;
+  background-image:
+    linear-gradient(rgba(52,211,153,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(52,211,153,0.06) 1px, transparent 1px) !important;
+}
+/* expand-blur fade gradient matches dark bg */
+.dark .expand-blur::after {
+  background: linear-gradient(to bottom, transparent, rgba(12,22,13,0.85) 60%, var(--dk-bg)) !important;
+}
+/* LockedSection white/60 overlay */
+.dark .bg-white\/60 { background-color: rgba(17,31,18,0.75) !important; }
+.dark .bg-white\/0  { background-color: transparent !important; }
+
+/* ── blue (SoilAnalysis metric cards, CropPlanner badge) ──────── */
+.dark .bg-blue-50        { background-color: #0e1929 !important; }
+.dark .bg-blue-100       { background-color: #12203a !important; }
+.dark .text-blue-700     { color: #93c5fd !important; }
+.dark .text-blue-600     { color: #60a5fa !important; }
+.dark .text-blue-500     { color: #93c5fd !important; }
+.dark .text-blue-400     { color: #bfdbfe !important; }
+.dark .border-blue-100,
+.dark .border-blue-200   { border-color: rgba(96,165,250,0.22) !important; }
+
+/* ── violet (SoilAnalysis nutrient card) ─────────────────────── */
+.dark .bg-violet-50      { background-color: #16131f !important; }
+.dark .bg-violet-100     { background-color: #1e1a2e !important; }
+.dark .text-violet-700   { color: #d8b4fe !important; }
+.dark .text-violet-600   { color: #c084fc !important; }
+.dark .text-violet-500   { color: #d8b4fe !important; }
+.dark .border-violet-100,
+.dark .border-violet-200 { border-color: rgba(192,132,252,0.20) !important; }
+
+/* ── teal (SoilAnalysis chart tooltip) ───────────────────────── */
+.dark .text-teal-700     { color: #5eead4 !important; }
+.dark .text-teal-600     { color: #2dd4bf !important; }
+.dark .text-teal-500     { color: #5eead4 !important; }
+.dark .bg-teal-50        { background-color: #0c1f1d !important; }
+
+/* ── missing text stops ───────────────────────────────────────── */
+.dark .text-gray-300     { color: #7aaa7a !important; }
+.dark .text-red-700      { color: #fca5a5 !important; }
+.dark .text-red-400      { color: #fca5a5 !important; }
+.dark .text-yellow-600   { color: #fde047 !important; }
+.dark .text-amber-400    { color: #fde68a !important; }
+
+/* ── dot/pill solid colors (kept visible, shifted to dark tone) ── */
+.dark .bg-amber-400      { background-color: #78350f !important; }
+.dark .bg-yellow-400     { background-color: #713f12 !important; }
+.dark .bg-red-400        { background-color: #7f1d1d !important; }
+.dark .bg-green-400      { background-color: #14532d !important; }
+.dark .bg-green-300      { background-color: #166534 !important; }
+
+/* ── opacity bg variants (pages use these for tinted rows) ──────── */
+.dark .bg-gray-50\/60     { background-color: rgba(25,43,26,0.70) !important; }
+.dark .bg-gray-50\/50     { background-color: rgba(25,43,26,0.60) !important; }
+.dark .bg-emerald-50\/40  { background-color: rgba(18,37,26,0.55) !important; }
+.dark .bg-blue-50\/40,
+.dark .bg-blue-50\/60     { background-color: rgba(14,25,41,0.55) !important; }
+
+/* ── hover extras ─────────────────────────────────────────────── */
+.dark .hover\:bg-gray-50:hover        { background-color: var(--dk-raised)   !important; }
+.dark .hover\:bg-gray-900:hover       { background-color: #0a1209 !important; }
+.dark .hover\:bg-emerald-800:hover    { background-color: #064e2e !important; }
+.dark .hover\:text-gray-800:hover     { color: #c8e4c8 !important; }
+.dark .hover\:text-gray-900:hover     { color: #e2efe2 !important; }
+.dark .hover\:border-gray-300:hover   { border-color: rgba(100,180,100,0.30) !important; }
+.dark .hover\:border-gray-400:hover   { border-color: rgba(100,180,100,0.40) !important; }
+.dark .hover\:border-blue-400:hover   { border-color: rgba(96,165,250,0.40)  !important; }
+.dark .hover\:border-amber-400:hover  { border-color: rgba(251,191,36,0.40)  !important; }
+.dark .hover\:border-emerald-400:hover { border-color: rgba(52,211,153,0.45) !important; }
+/* opacity bg hover variants (Billing saved-card row, netbanking list) */
+.dark .hover\:bg-green-50\/40:hover   { background-color: rgba(18,34,22,0.55)  !important; }
+.dark .hover\:bg-gray-50\/40:hover    { background-color: rgba(25,43,26,0.50)  !important; }
+/* group-hover for icon container in MethodPill */
+.dark .group:hover .group-hover\:bg-green-50 { background-color: #172d1a !important; }
+
+/* ── Billing: missing opacity bg variants ─────────────────────── */
+/* MethodPill selected bg, UPI app selected, bank list selected */
+.dark .bg-green-50\/80   { background-color: rgba(18,34,22,0.88) !important; }
+.dark .bg-green-50\/60   { background-color: rgba(18,34,22,0.72) !important; }
+/* UPI QR code hint box */
+.dark .bg-blue-50\/60    { background-color: rgba(14,25,41,0.72) !important; }
+
+/* ── Billing: missing border colors ──────────────────────────── */
+.dark .border-green-100  { border-color: rgba(74,222,128,0.15) !important; }
+.dark .border-red-100    { border-color: rgba(248,113,113,0.20) !important; }
+
+/* ── stone (CropPlanner page bg) ──────────────────────────────── */
+.dark .bg-stone-50       { background-color: var(--dk-raised)   !important; }
+.dark .bg-stone-100      { background-color: var(--dk-raised-2) !important; }
+.dark .text-stone-700    { color: #a8cca8 !important; }
+.dark .text-stone-600    { color: #88b488 !important; }
+.dark .text-stone-500    { color: #6a9a6a !important; }
+
+/* ── page grid backgrounds (inline <style> overridden by higher specificity) ── */
+/* SoilAnalysis dashed-grid */
+.dark .dashed-grid {
+  background-color: var(--dk-bg) !important;
+  background-image:
+    linear-gradient(rgba(100,200,100,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(100,200,100,0.06) 1px, transparent 1px) !important;
+}
+/* CropPlanner dashed-bg */
+.dark .dashed-bg {
+  background-color: var(--dk-bg) !important;
+  background-image:
+    linear-gradient(rgba(100,200,100,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(100,200,100,0.05) 1px, transparent 1px) !important;
+}
+/* Market grid */
+.dark .market-grid-bg {
+  background-color: var(--dk-bg) !important;
+  background-image:
+    linear-gradient(rgba(52,211,153,0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(52,211,153,0.07) 1px, transparent 1px) !important;
+}
+/* Market progressive-blur fade — match dark bg */
+.dark .progressive-blur::after {
+  background: linear-gradient(to bottom, transparent, rgba(12,22,13,0.9) 70%, var(--dk-bg)) !important;
+}
+
+/* ── scrollbar ────────────────────────────────────────────────── */
+.dark ::-webkit-scrollbar-track { background: var(--dk-bg); }
+.dark ::-webkit-scrollbar-thumb { background: var(--dk-border); border-radius: 4px; }
